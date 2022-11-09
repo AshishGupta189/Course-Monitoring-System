@@ -1,0 +1,39 @@
+ 
+ 
+database creation and using:
+
+-> create database cwproject;
+-> use cwproject;
+
+creating tables:
+
+-> create table admin(username varchar(20),password varchar(15));
+
+-> create table faculty(facultyid int primary key,
+    -> facultyname varchar(20),
+    -> facultyaddress varchar(20),
+    -> mobile varchar(12),
+    -> email varchar(12),
+    -> username varchar(12),
+    -> password varchar(12));
+
+-> create table course(courseid int primary key,
+    -> coursename varchar(15),
+    -> fee int,
+    -> coursedescription varchar(20));
+
+-> create table  batch(batchid int primary key,
+    -> cid int,
+    -> fid int,
+    -> numofstudent int,
+    -> duration int,
+    -> foreign key(cid) references course(courseid),
+    -> foreign key(fid) references faculty(facultyid));
+
+-> create table courseplan(planid int primary key,
+    -> batchid int,
+    -> daynum int,
+    -> topic varchar(20),
+    -> status varchar(8),
+    -> foreign key(batchid) references batch(batchid));
+
