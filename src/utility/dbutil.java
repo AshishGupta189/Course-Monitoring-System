@@ -16,7 +16,7 @@ public class dbutil {
 			e.printStackTrace();
 		}
 		
-		String url="jdbc:mysql://localhost:3306/sb101_Web20";
+		String url="jdbc:mysql://localhost:3306/cwproject";
 		
 		try {
 			conn=DriverManager.getConnection(url, "root", "ashish189");
