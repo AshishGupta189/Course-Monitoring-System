@@ -1,5 +1,12 @@
 package Dao;
 
-public class CoursePlanDao {
+import java.util.List;
 
+import Bean.CoursePlan;
+import Exception.MyException;
+
+public interface CoursePlanDao {
+
+	public  String registerCoursePlan(CoursePlan courseplan);
+	public List<CoursePlan> getAllCoursePlanDetails() throws MyException;
 }
