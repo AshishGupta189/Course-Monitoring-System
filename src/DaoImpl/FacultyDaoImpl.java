@@ -169,7 +169,32 @@ public class FacultyDaoImpl implements FacultyDao{
 		}
 		return faculty;
 	}
-	
+	@Override
+	public String updatepass(String User,String pass,String newpass) {
+		String msg="";
+		try (Connection conn=dbutil.provideconnection()){
+			PreparedStatement ps=conn.prepareStatement("update faculty set password=? where username=? and password=?");
+			ps.setString(1, newpass);
+			ps.setString(2, User);
+			ps.setString(3, pass);
+			int rs=ps.executeUpdate();
+			
+			if(rs>0) {
+				msg="Password Updated";
+			}else {
+				msg="Wrong username or password";
+			}
+			
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return msg;
+		
+	}
+
 	
 
 }
