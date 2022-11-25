@@ -2,6 +2,10 @@ package usecases;
 
 import java.util.Scanner;
 
+import Dao.FacultyDao;
+import DaoImpl.FacultyDaoImpl;
+import Exception.MyException;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -17,7 +21,12 @@ public class Main {
 		
 		case 1:
 			userNameAndPasswordADMIN a=new userNameAndPasswordADMIN();
-			a.userNameAndPass();
+			try {
+				a.userNameAndPass();
+			} catch (MyException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			if(a.flag==1)
 			{
 				while(true)
@@ -121,7 +130,12 @@ public class Main {
 		break;
 		case 2: 
 			UsernamePasswordFaculty b=new UsernamePasswordFaculty();
-			b.userNameAndPass();
+			try {
+				b.userNameAndPass();
+			} catch (MyException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(b.flags==1)
 			{
 				while(true)
@@ -153,11 +167,15 @@ public class Main {
 						break;
 						
 					case 4:
-						UsernamePasswordFaculty ud=new UsernamePasswordFaculty();
-						System.out.println("Enter New password");
+						FacultyDao f=new FacultyDaoImpl();
+						System.out.println("Enter Username for confirmation");
 						String p=sc.next();
-						ud.pass=p;
-						System.out.println("password updated");
+						System.out.println("Enter current password");
+						String pi=sc.next();
+						System.out.println("Enter newpassword");
+						String pp=sc.next();
+						String msg=f.updatepass(p, pi, pp);
+						System.out.println(msg);
 						break;
 						
 					case 5:

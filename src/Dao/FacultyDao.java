@@ -12,5 +12,5 @@ public interface FacultyDao {
 	public List<Faculty> getAllFacultyDetails() throws MyException;
 	public String showFacultyAllocated(String s);
 	public Faculty searchByUsernameAndPassword(String username, String password);
-	
+	public String updatepass(String username, String password,String newpass) ;
 }
