@@ -1,4 +1,4 @@
-# Course-Monitoring-System
+# Course Monitoring System
 This is a Course Monitoring System(console based) project which is made with the help of Java,Mysql,JDBC,etc. 
 In this project I have used MySQL and JDBC driver along with java, here 4 tables is added i.e Batch, Faculty, Course, Course-Plan and with the help of these tables several operations is perfomed using Scanner class(By taking input from user) i.e, DYNAMICALLY.
 
